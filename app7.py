@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_geolocation import streamlit_geolocation
 from datetime import datetime
-import pytz
+
 
 st.title("Evaluación Rápida de Vulnerabilidad Sísmica")
 
@@ -287,9 +287,6 @@ if st.button("Calcular y Guardar Evaluación"):
 
     Score = So + Ms + Mp
 
-    zona_colombia = pytz.timezone("America/Bogota")
-    fecha_actual = datetime.now(zona_colombia)
-
     st.subheader("Resultados")
 
     st.write("So:", So)
@@ -307,7 +304,7 @@ if st.button("Calcular y Guardar Evaluación"):
         st.success(estado)
 
     st.session_state.evaluaciones.append({
-        "Fecha": datetime.now(),
+        "Fecha": datetime.now().strftime("%Y-%m-%d"),
         "Latitud": lat,
         "Longitud": lon,
         "Tipología": tipologia,
