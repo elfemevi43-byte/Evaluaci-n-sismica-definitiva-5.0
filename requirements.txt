@@ -1,0 +1,6 @@
+﻿streamlit
+pandas
+streamlit_geolocation
+datetime
+openpyxl
+pytz
